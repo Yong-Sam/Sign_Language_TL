@@ -41,8 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\ExampleAssets\Scripts\AnchorCreator.cs" />
      <Compile Include="Assets\ExampleAssets\Scripts\ARFeatheredPlaneMeshVisualizer.cs" />
+     <Compile Include="Assets\ExampleAssets\Scripts\AnchorCreator.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\ExampleAssets" />
      <Folder Include="Assets\ExampleAssets\Shaders" />
@@ -296,11 +296,41 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>C:\Users\hansb\Unity\2021.3.25f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
+     <Reference Include="Google.Protobuf">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.barracuda@2.0.0\Barracuda\Runtime\Plugins\ProtoBuffer\Google.Protobuf.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Pdb">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Abstractions.TestingHelpers">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.ml-agents@2.0.1\Plugins\System.IO.Abstractions.TestingHelpers.dll</HintPath>
+     </Reference>
      <Reference Include="ReportGeneratorMerged">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\PackageCache\com.unity.testtools.codecoverage@1.2.3\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.testtools.codecoverage@1.2.3\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Abstractions">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.ml-agents@2.0.1\Plugins\System.IO.Abstractions.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Unsafe">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Mdb">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Rocks">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Interactive.Async">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.ml-agents@2.0.1\Plugins\ProtoBuffer\System.Interactive.Async.dll</HintPath>
+     </Reference>
+     <Reference Include="Grpc.Core">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\PackageCache\com.unity.ml-agents@2.0.1\Plugins\ProtoBuffer\Grpc.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:\Users\hansb\Unity\2021.3.25f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -674,173 +704,212 @@
      <Reference Include="System.Xml.Serialization">
      <HintPath>C:\Users\hansb\Unity\2021.3.25f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <Reference Include="Unity.ML-Agents">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.ML-Agents.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.SpatialTracking">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.XR.MagicLeap">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.XR.MagicLeap.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARKit">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.dll</HintPath>
+     <Reference Include="Unity.Barracuda.iOSBLAS">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Barracuda.iOSBLAS.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.007">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.007.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARSubsystems.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARSubsystems.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARSubsystems">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARSubsystems.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARFoundation.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARFoundation.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenXR.Features.ConformanceAutomation">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.ConformanceAutomation.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.InteractionSubsystems">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.InteractionSubsystems.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.XR.MagicLeap">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.XR.MagicLeap.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenXR.Features.RuntimeDebugger.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.RuntimeDebugger.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Subsystem.Registration">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARCore.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARCore.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.OculusQuestSupport.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARKit.FaceTracking">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.FaceTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.OculusQuestSupport.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.Management.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.Management.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Tutorials.Core.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.Tutorials.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenXR">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.007.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <Reference Include="Unity.VisualScripting.State.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.MetaQuestSupport.Editor.dll</HintPath>
+     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.InputSystem">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARFoundation">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARFoundation.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenXR.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.Management">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.Management.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Tutorials.Core">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.Tutorials.Core.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InternalAPIEditorBridge.007">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.007.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARKit.FaceTracking.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.FaceTracking.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.SpatialTracking">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.MetaQuestSupport.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <Reference Include="Unity.XR.ARCore.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARCore.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARKit.Editor">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.Editor.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UI">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InputSystem">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Rider.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.SpatialTracking">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.MetaQuestSupport.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.EditorCoroutines.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.InteractionSubsystems">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.InteractionSubsystems.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ML-Agents.CommunicatorObjects">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.ML-Agents.CommunicatorObjects.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARSubsystems.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARSubsystems.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.MetaQuestSupport.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.Management">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.Management.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARCore">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARCore.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARCore.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARSubsystems">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARSubsystems.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit.FaceTracking">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.FaceTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARFoundation.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARFoundation.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Barracuda.MacBLAS">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Barracuda.MacBLAS.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Tutorials.Core">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Tutorials.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Barracuda.ONNX">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Barracuda.ONNX.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Flow.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Barracuda.BurstBLAS">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Barracuda.BurstBLAS.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InternalAPIEditorBridge.007">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.007.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualStudio.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.OculusQuestSupport.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Barracuda">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Barracuda.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.Management.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.Management.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit.FaceTracking.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARKit.FaceTracking.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Core.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Subsystem.Registration">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Flow">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.PlasticSCM.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.OculusQuestSupport.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Tutorials.Core.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Tutorials.Core.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Core">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.XR.MagicLeap">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.XR.MagicLeap.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.XR.MagicLeap">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.XR.MagicLeap.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\hansb\Desktop\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Shared.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.SpatialTracking">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR.Features.ConformanceAutomation">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.ConformanceAutomation.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.OpenXR.Features.RuntimeDebugger.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.OpenXR.Features.RuntimeDebugger.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.State">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ML-Agents.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.ML-Agents.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Barracuda.Editor">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.Barracuda.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARFoundation">
+     <HintPath>C:\Users\hansb\Desktop\Sign_Language_TL\Sign_Language_AR\Library\ScriptAssemblies\Unity.XR.ARFoundation.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
