@@ -3,8 +3,8 @@ import cv2
 import socket
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 1280)
-cap.set(4, 720)
+cap.set(3, 640)
+cap.set(4, 360)
 success, img = cap.read()
 h, w, _ = img.shape
 detector = HandDetector(detectionCon=0.8, maxHands=2)
