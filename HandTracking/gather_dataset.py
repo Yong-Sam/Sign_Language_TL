@@ -19,7 +19,7 @@ gesture = {
 }  # 7가지 제스처, 제스처 데이터는 손가락 관절의 각도와 각각의 라벨 뜻함
 
 # Gesture recognition data
-file = np.genfromtxt('./data/gesture_train.task', delimiter=',')
+file = np.genfromtxt('./data/gesture_recognizer.csv', delimiter=',')
 print(file.shape)
 
 cap = cv2.VideoCapture(0)
@@ -102,4 +102,4 @@ while cap.isOpened():
     if cv2.waitKey(1) == ord('q'):
         break
 
-    np.savetxt('./data/gesture_recognizer.task', file, delimiter=',')
+    np.savetxt('./data/gesture_recognizer.csv', file, delimiter=',')

@@ -22,7 +22,7 @@ hands = mp_hands.Hands(
 )
 
 # Gesture recognition model
-file = np.genfromtxt('./data/gesture_recognizer.task', delimiter=',') # 수집한 데이터셋 파일 가져옴
+file = np.genfromtxt('./data/gesture_recognizer.csv', delimiter=',') # 수집한 데이터셋 파일 가져옴
 angle = file[:,:-1].astype(np.float32)  # angle과 label을 데이터로 모아줌
 label = file[:,-1].astype(np.float32)
 knn = cv2.ml.KNearest_create()          # opencv의 k최근접 알고리즘 사용해서 학습시켜줌 -> knn모델에 데이터가 잘 학습 돼서 들어감
