@@ -1,10 +1,10 @@
 import cv2
 import mediapipe as mp
 import numpy as np
-import socket
+#import socket
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-serverAddressPort = ("127.0.0.1", 5052)
+#sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#serverAddressPort = ("127.0.0.1", 5052)
 
 max_num_hands = 2
 gesture = {
@@ -71,7 +71,7 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
 
             #mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
 
-            sock.sendto(str.encode(str(data)), serverAddressPort)
+            # sock.sendto(str.encode(str(data)), serverAddressPort)
 
     # Display
     cv2.imshow('SignLanguage', img)
