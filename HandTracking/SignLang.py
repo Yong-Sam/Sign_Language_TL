@@ -8,8 +8,10 @@ import numpy as np
 
 max_num_hands = 2
 gesture = {
-    0: 'Unknown', 1: 'Closed_Fist', 2: 'Open_Palm', 3: 'Pointing_Up', 4: 'Thumb_Down',
-    5: 'Thumb_Up', 6: 'Victory', 7: 'ILoveYou', 8: 'Hello'
+    0: 'fist', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
+    6: 'six', 7: 'rock', 8: 'spiderman', 9: 'yeah', 10: 'ok',
+    11: 'Hello1', 12: 'Hello2', 13: 'I', 14: 'Name', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
+    # 모음 자음 추가해야 함
 }
 
 # mediapipe hands model
@@ -68,6 +70,10 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
             data = np.array([angle], dtype = np.float32)
             ret, results, neighbours, dist = knn.findNearest(data, 3) # k가 3일 때의 값을 구하고
             idx = int(results[0][0])                                  # 결과는 result 인덱스에 저장
+
+            # 제스처 라벨 표시
+            gesture_label = gesture.get(idx, 'Unknown')
+            cv2.putText(img, gesture_label, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
             #mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
 
