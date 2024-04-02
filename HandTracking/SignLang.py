@@ -1,10 +1,14 @@
 import cv2
 import mediapipe as mp
 import numpy as np
-#import socket
+import socket
 
-#sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#serverAddressPort = ("127.0.0.1", 5052)
+
+# 소켓 설정
+HOST = '192.168.0.27'  # Unity가 실행되는 호스트의 IP 주소
+PORT = 5052         # Unity와 통신할 포트 번호
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((HOST, PORT))
 
 max_num_hands = 2
 gesture = {
@@ -77,9 +81,17 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
 
             #mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
 
-            # sock.sendto(str.encode(str(data)), serverAddressPort)
+
 
     # Display
     cv2.imshow('SignLanguage', img)
+
+    # Unity에 영상 데이터 전송
+    encoded_frame = cv2.imencode('.jpg', img)[1].tobytes()
+    sock.sendall(encoded_frame)
+
     if cv2.waitKey(1) == ord('q'):
         break
+
+cap.release()
+cv2.destroyAllWindows()
