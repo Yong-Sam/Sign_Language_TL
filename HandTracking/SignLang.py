@@ -5,8 +5,8 @@ import socket
 
 
 # 소켓 설정
-HOST = '192.168.0.27'  # Unity가 실행되는 호스트의 IP 주소
-PORT = 5052         # Unity와 통신할 포트 번호
+HOST = '192.168.35.101'  # Unity가 실행되는 호스트의 IP 주소
+PORT = 50000         # Unity와 통신할 포트 번호
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((HOST, PORT))
 
@@ -17,6 +17,22 @@ gesture = {
     11: 'Hello1', 12: 'Hello2', 13: 'I', 14: 'Name', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
     # 모음 자음 추가해야 함
 }
+
+# 이미 표시된 단어들을 저장할 리스트
+displayed_words = []
+
+# displayed_words를 웹캠 화면에 표시하는 함수 정의
+def display_words(img, words):
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    font_scale = 0.7
+    font_thickness = 2
+    margin = 20
+    x = margin
+    y = img.shape[0] - margin
+    for word in words:
+        text_size = cv2.getTextSize(word, font, font_scale, font_thickness)[0]
+        cv2.putText(img, word, (x, y), font, font_scale, (0, 0, 0), font_thickness)
+        x += text_size[0] + 2 # 단어 사이 간격 조정
 
 # mediapipe hands model
 mp_drawing = mp.solutions.drawing_utils
@@ -45,6 +61,9 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # opencv의 BGR컬러 시스템을 cvtColor 이용해서 Mediapipe의 RGB컬러 시스템으로 변경해줌
     result = hands.process(img)     # mediapipe 모델에 넣어주기 전에 전처리 해줌
     img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)  # 그 다음 이미지를 또 출력해야 하므로 다시 변환
+
+    # 현재 프레임에서 인식된 단어들을 저장할 리스트
+    detected_words = []
 
     if result.multi_hand_landmarks is not None:     # 전처리가 되고 모델추론까지 된 다음에 결과가 나오면 true가 되고, 손이 인식되지 않으면 false
         for res in result.multi_hand_landmarks:     # 카메라 프레임에서 계속해서 손을 감지하므로 for문 처리
@@ -77,21 +96,30 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
 
             # 제스처 라벨 표시
             gesture_label = gesture.get(idx, 'Unknown')
+            detected_words.append(gesture_label) # 현재 프레임에서 인식된 단어 추가
+
+            # 중복된 단어 제거 후 한 문장으로 합치기
+            unique_words = set(detected_words)
+            sentence = ' '.join(unique_words)
+
+            # 이미 표시된 단어와 중복되지 않는 단어만 표시
+            new_words = [word for word in unique_words if word not in displayed_words]
+            displayed_words.extend(new_words)
+
+            # displayed_words를 웹캠 화면에 표시
+            display_words(img, displayed_words)
+
+
+            # Display
             cv2.putText(img, gesture_label, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.imshow('SignLanguage', img)
 
-            #mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
+            # Unity에 영상 데이터 전송
+            encoded_frame = cv2.imencode('.jpg', img)[1].tobytes()
+            sock.sendall(encoded_frame)
 
-
-
-    # Display
-    cv2.imshow('SignLanguage', img)
-
-    # Unity에 영상 데이터 전송
-    encoded_frame = cv2.imencode('.jpg', img)[1].tobytes()
-    sock.sendall(encoded_frame)
-
-    if cv2.waitKey(1) == ord('q'):
-        break
+            if cv2.waitKey(1) == ord('q'):
+                break
 
 cap.release()
 cv2.destroyAllWindows()
