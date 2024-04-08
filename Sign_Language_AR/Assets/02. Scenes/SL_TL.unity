@@ -739,6 +739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274177d0fb1f2554695cdb734e2b830d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverAddress: 127.0.0.1
-  serverPort: 5052
+  serverAddress: 192.168.35.101
+  serverPort: 50000
   displayRenderer: {fileID: 525365572}
