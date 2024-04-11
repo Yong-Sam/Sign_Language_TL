@@ -1,13 +1,21 @@
-
 import cv2
 import mediapipe as mp
 import numpy as np
+from PIL import ImageFont, ImageDraw, Image
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+
+# 글꼴 경로 설정
+font_path = 'C:\WINDOWS\Fonts\MapoBackpacking.ttf'
+# 폰트 이름 가져오기
+font_name = fm.FontProperties(fname=font_path).get_name()
+# 폰트 설정
+plt.rc('font', family=font_name)
+
 
 max_num_hands = 1
 gesture = {
-    0: 'fist', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
-    6: 'six', 7: 'rock', 8: 'spiderman', 9: 'yeah', 10: 'ok',
-    11: 'Hello1', 12: 'Hello2', 13: 'I', 14: 'Name', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
+    11: 'Hello1', 12: 'Hello2', 13: 'I', 14: '이름', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
     # 모음 자음 추가해야 함
 }
 

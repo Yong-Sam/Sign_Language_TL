@@ -1,22 +1,47 @@
 import cv2
 import mediapipe as mp
 import numpy as np
+from PIL import ImageFont, ImageDraw, Image
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import socket
 
+# 글꼴 경로 설정
+font_path = 'C:\WINDOWS\Fonts\MapoBackpacking.ttf'
+# 폰트 이름 가져오기
+font_name = fm.FontProperties(fname=font_path).get_name()
+# 폰트 설정
+plt.rc('font', family=font_name)
 
-# 소켓 설정
-HOST = '192.168.35.101'  # Unity가 실행되는 호스트의 IP 주소
-PORT = 50000         # Unity와 통신할 포트 번호
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect((HOST, PORT))
+# # 소켓 설정
+# HOST = '192.168.35.101'  # Unity가 실행되는 호스트의 IP 주소
+# PORT = 50000         # Unity와 통신할 포트 번호
+# sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# sock.connect((HOST, PORT))
 
 max_num_hands = 2
 gesture = {
-    0: 'fist', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
-    6: 'six', 7: 'rock', 8: 'spiderman', 9: 'yeah', 10: 'ok',
-    11: 'Hello1', 12: 'Hello2', 13: 'I', 14: 'Name', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
+    11: 'Hello1', 12: 'Hello2', 13: 'I', 14: '이름', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
     # 모음 자음 추가해야 함
 }
+
+# continuous = {'감기 ':["cold1","cold2"], '아니오 ':["no1","no2"], '콧물 ':["runnynose1","runnynose2"],
+#               '쓰러지다 ':["fall1","fall2"], '설사 ':["diarrhea1","diarrhea2"], '입원 ':["hospitalization1","hospitalization2","hospitalization3"],
+#               '퇴원 ':["hospitalization3","hospitalization2","hospitalization1"],
+#               '완쾌 ':["recovery1","recovery2","recovery3"], '소화불량 ' :["digestion1","digestion2","poor"], '변비 ':["constipation1","constipation2","constipation3"],
+#               '소변 ':["urine1","urine2"], '수술 ':["surgery1","surgery2"],  '낫다 ':["","recovery3"]}
+# #핵심 이미지가 여러개인 수화 동작 저장
+#
+# one = {'3day':'3일 ', 'yes':'네 ', 'head':'머리 ', 'stomach':'배 ', 'sick':'아프다 ','reset':'','medicine':'약 '}
+# #핵심 이미지가 하나인 수화 동작 저장
+#
+# list_of_key = list(continuous.keys())
+# list_of_value = list(continuous.values())
+# #핵심 이미지가 여러개인 단어인 경우,
+# #단어 별 핵심 이미지들은 value에 저장, 한국어 단어는 key에 저장
+#
+#b,g,r,a = 255,255,255,0
+
 
 # 이미 표시된 단어들을 저장할 리스트
 displayed_words = []
@@ -114,9 +139,9 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
             cv2.putText(img, gesture_label, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
             cv2.imshow('SignLanguage', img)
 
-            # Unity에 영상 데이터 전송
-            encoded_frame = cv2.imencode('.jpg', img)[1].tobytes()
-            sock.sendall(encoded_frame)
+            # # Unity에 영상 데이터 전송
+            # encoded_frame = cv2.imencode('.jpg', img)[1].tobytes()
+            # sock.sendall(encoded_frame)
 
             if cv2.waitKey(1) == ord('q'):
                 break
