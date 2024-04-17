@@ -1,17 +1,20 @@
 import cv2
 import mediapipe as mp
 import numpy as np
+from queue import Queue
 from PIL import ImageFont, ImageDraw, Image
+
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import socket
 
 # 글꼴 경로 설정
-font_path = 'C:\WINDOWS\Fonts\MapoBackpacking.ttf'
-# 폰트 이름 가져오기
-font_name = fm.FontProperties(fname=font_path).get_name()
-# 폰트 설정
-plt.rc('font', family=font_name)
+font_path = 'Font\MapoBackpacking.ttf'
+font = ImageFont.truetype(font_path, 20)
+# # 폰트 이름 가져오기
+# font_name = fm.FontProperties(fname=font_path).get_name()
+# # 폰트 설정
+# plt.rc('font', family=font_name)
 
 # # 소켓 설정
 # HOST = '192.168.35.101'  # Unity가 실행되는 호스트의 IP 주소
@@ -20,31 +23,30 @@ plt.rc('font', family=font_name)
 # sock.connect((HOST, PORT))
 
 max_num_hands = 2
-gesture = {
-    11: 'Hello1', 12: 'Hello2', 13: 'I', 14: '이름', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
+#gesture = {
+#    11: 'Hello1', 12: 'Hello2', 13: 'I', 14: 'Name', 15: 'Meet1', 16: 'Meet2', 17: 'NiceTMY1', 18: 'NiceTMY2',
     # 모음 자음 추가해야 함
-}
+#}
 
-# continuous = {'감기 ':["cold1","cold2"], '아니오 ':["no1","no2"], '콧물 ':["runnynose1","runnynose2"],
-#               '쓰러지다 ':["fall1","fall2"], '설사 ':["diarrhea1","diarrhea2"], '입원 ':["hospitalization1","hospitalization2","hospitalization3"],
-#               '퇴원 ':["hospitalization3","hospitalization2","hospitalization1"],
-#               '완쾌 ':["recovery1","recovery2","recovery3"], '소화불량 ' :["digestion1","digestion2","poor"], '변비 ':["constipation1","constipation2","constipation3"],
-#               '소변 ':["urine1","urine2"], '수술 ':["surgery1","surgery2"],  '낫다 ':["","recovery3"]}
-# #핵심 이미지가 여러개인 수화 동작 저장
-#
-# one = {'3day':'3일 ', 'yes':'네 ', 'head':'머리 ', 'stomach':'배 ', 'sick':'아프다 ','reset':'','medicine':'약 '}
-# #핵심 이미지가 하나인 수화 동작 저장
-#
-# list_of_key = list(continuous.keys())
-# list_of_value = list(continuous.values())
-# #핵심 이미지가 여러개인 단어인 경우,
-# #단어 별 핵심 이미지들은 value에 저장, 한국어 단어는 key에 저장
-#
-#b,g,r,a = 255,255,255,0
+#---------------------------
+
+continuous = {'안녕하세요 ':["Hello1","Hello2"], '만나서 ':["Meet1","Meet2"], '반갑습니다 ':["NiceTMY1","NiceTMY2"]}
+#핵심 이미지가 여러개인 수화 동작 저장
+
+one = {'I':'저의(저는) ', 'Name':'이름 '}
+#핵심 이미지가 하나인 수화 동작 저장
+
+list_of_key = list(continuous.keys())
+list_of_value = list(continuous.values())
+#핵심 이미지가 여러개인 단어인 경우,
+#단어 별 핵심 이미지들은 value에 저장, 한국어 단어는 key에 저장
 
 
-# 이미 표시된 단어들을 저장할 리스트
-displayed_words = []
+displayed_words = [] # 이미 표시된 단어들을 저장할 리스트
+result = "" # 현재 결과
+before_result = "" # 이전 결과
+result_que = Queue(3) # result들을 저장하는 큐, 현재 결과까지 최대 3개 저장
+
 
 # displayed_words를 웹캠 화면에 표시하는 함수 정의
 def display_words(img, words):
@@ -56,6 +58,9 @@ def display_words(img, words):
     y = img.shape[0] - margin
     for word in words:
         text_size = cv2.getTextSize(word, font, font_scale, font_thickness)[0]
+        # 글자의 배경을 흰색으로 설정하여 글자를 강조합니다. 배경색을 조절할 수 있습니다.
+        cv2.putText(img, word, (x, y), font, font_scale, (255, 255, 255), font_thickness + 2, cv2.LINE_AA)
+
         cv2.putText(img, word, (x, y), font, font_scale, (0, 0, 0), font_thickness)
         x += text_size[0] + 2 # 단어 사이 간격 조정
 
@@ -119,9 +124,44 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
             ret, results, neighbours, dist = knn.findNearest(data, 3) # k가 3일 때의 값을 구하고
             idx = int(results[0][0])                                  # 결과는 result 인덱스에 저장
 
-            # 제스처 라벨 표시
-            gesture_label = gesture.get(idx, 'Unknown')
-            detected_words.append(gesture_label) # 현재 프레임에서 인식된 단어 추가
+            # ------------------제스처 라벨 표시-------------------
+            # result가 null이 아닌 경우에만 before_result에 저장
+            if result != "":
+                before_result = result
+
+            # 디텍션 결과가 null이 아닌 경우에만 result에 저장
+            if label != "":
+                result = label
+
+                # 이전 결과와 현재 결과가 다른 경우에만 결과 큐에 저장
+                if (before_result != result and result not in list(one.keys())):
+                    if (not result_que.full()):
+                        result_que.put(result)
+                    else:
+                        # 큐가 가득 차있으면 원소 제거 후 삽입
+                        result_que.get()
+                        result_que.put(result)
+
+
+            # 동작이 하나인 경우
+            # gesture_label = one.get(idx, '.')
+            if gesture_label in list(one.keys()):
+                if gesture_label == 'reset':
+                    # 인식한 이미지가 리셋일 경우 문장 초기화
+                    detected_words = []
+                else:
+                    # 리셋이 아닐경우 문장에 추가
+                    detected_words.append(one.get(gesture_label))
+                result_que = Queue(3)
+            # 큐를 리스트로 변환
+            list_of_result = list(result_que.queue)
+
+            # 동작이 두 개 이상인 경우
+            for i in range(len(list_of_key)):
+                if list_of_result == list_of_value[i] or list_of_result[1:] == list_of_value[i]:
+                    # 현재까지 저장된 result들을 토대로 단어 생성
+                    gesture_label = list_of_key[i]
+                    detected_words.append(gesture_label)  # 현재 프레임에서 인식된 단어 추가
 
             # 중복된 단어 제거 후 한 문장으로 합치기
             unique_words = set(detected_words)
@@ -136,7 +176,7 @@ while cap.isOpened():       # 웹캠에서 추가한 이미지 읽어오는데, 
 
 
             # Display
-            cv2.putText(img, gesture_label, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(img, gesture_label, (20, 50),font, 1, (0, 255, 0), 2, cv2.LINE_AA)
             cv2.imshow('SignLanguage', img)
 
             # # Unity에 영상 데이터 전송
