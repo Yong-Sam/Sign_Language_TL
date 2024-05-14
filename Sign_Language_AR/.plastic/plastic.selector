@@ -1,0 +1,4 @@
+repository "SignLanguage_AR@YongSam@cloud"
+  path "/"
+    br "/main"
+    co "/main"
