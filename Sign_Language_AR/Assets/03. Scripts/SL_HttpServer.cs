@@ -74,6 +74,7 @@ public class SL_HttpServer : MonoBehaviour
                             displayText.text = "이름";
                             break;
                         // 나머지 단어도 추가...
+                        // 오늘 날씨가 참 좋네요, 식사는 하셨어요?, 좋은 하루 보내세요.
                         default:
                             displayText.text = "(수화 인식 중..)";
                             break;
