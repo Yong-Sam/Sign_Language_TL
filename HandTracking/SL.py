@@ -1,7 +1,8 @@
 import cv2
 import mediapipe as mp
 import numpy as np
-from keras.src.models import model
+from tensorflow import keras
+from tensorflow.keras import Sequential
 import requests
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
@@ -61,6 +62,8 @@ action_seq = []
 
 # Unity 애플리케이션 주소
 unity_app_address = 'http://localhost:5000'
+
+model = keras.models.load_model('models/model.h5')
 
 while cap.isOpened():
     ret, img = cap.read()
