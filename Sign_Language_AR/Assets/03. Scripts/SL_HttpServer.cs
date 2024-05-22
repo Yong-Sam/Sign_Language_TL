@@ -4,11 +4,15 @@ using System.Collections;
 using System.Net;
 using System.IO;
 using TMPro;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine.UI;
 
 public class SL_HttpServer : MonoBehaviour
 {
     public TextMeshProUGUI displayText;
+    private HashSet<string> currentWords = new HashSet<string>();
+    private List<string> currentSentence = new List<string>();
     private HttpListener listener;
     private string url = "http://localhost:5000/";
     private int port = 5000;
@@ -19,6 +23,7 @@ public class SL_HttpServer : MonoBehaviour
         listener.Prefixes.Add(url);
         listener.Start();
         StartListening();
+        Debug.Log("Server running on port " + port);
     }
 
     void StartListening()
@@ -41,6 +46,7 @@ public class SL_HttpServer : MonoBehaviour
     {
         public int word_number;
     }
+
     void HandleRequest(HttpListenerContext context)
     {
         HttpListenerRequest request = context.Request;
@@ -55,30 +61,25 @@ public class SL_HttpServer : MonoBehaviour
                     string jsonData = reader.ReadToEnd();
                     WordData wordData = JsonUtility.FromJson<WordData>(jsonData);
                     
-                    // 단어 번호에 따라 Text 컴포넌트에 출력
-                    switch (wordData.word_number)
+                    // 단어 번호에 따라 Text 컴포넌트에 출력 (메인 스레드에서 실행)
+                    UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
-                        case 1:
-                            displayText.text = "안녕하세요.";
-                            break;
-                        case 2:
-                            displayText.text = "만나서"; 
-                            break;
-                        case 3:
-                            displayText.text = "반갑습니다.";
-                            break;
-                        case 4:
-                            displayText.text = "저(의/는)";
-                            break;
-                        case 5:
-                            displayText.text = "이름";
-                            break;
-                        // 나머지 단어도 추가...
-                        // 오늘 날씨가 참 좋네요, 식사는 하셨어요?, 좋은 하루 보내세요.
-                        default:
-                            displayText.text = "(수화 인식 중..)";
-                            break;
-                    }
+                        string word = GetWordFromNumber(wordData.word_number);
+                        if (!string.IsNullOrEmpty(word))
+                        {
+                            if (!currentWords.Contains(word))
+                            {
+                                if (currentSentence.Count >= 3)
+                                {
+                                    currentSentence.Clear();
+                                    currentWords.Clear();
+                                }
+                                currentSentence.Add(word);
+                                currentWords.Add(word);
+                                displayText.text = string.Join(" ", currentSentence);
+                            }
+                        }
+                    });
                 }
             }
             catch (System.Exception e)
@@ -92,6 +93,25 @@ public class SL_HttpServer : MonoBehaviour
             Stream output = response.OutputStream;
             output.Write(buffer, 0, buffer.Length);
             output.Close();
+        }
+    }
+
+    private string GetWordFromNumber(int number)
+    {
+        switch (number)
+        {
+            case 1:
+                return "안녕하세요.";
+            case 2:
+                return "만나서";
+            case 3:
+                return "반갑습니다.";
+            case 4:
+                return "저(의/는)";
+            case 5:
+                return "이름";
+            default:
+                return null;
         }
     }
 }
