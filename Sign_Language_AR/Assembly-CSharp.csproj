@@ -113,6 +113,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\HandsActiveChecker.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\BouncingBallMgr.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\CowController.cs" />
+    <Compile Include="Assets\03. Scripts\UnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Scripts\VolumeAndPlaneSwitcher.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\CustomHands\Scripts\HandPose.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\EnableUnpremultipliedAlpha.cs" />
@@ -182,7 +183,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughStyler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorUIManager.cs" />
-    <Compile Include="Assets\03. Scripts\UnityMainThreadDispatcher.cs" />
+    <Compile Include="Assets\03. Scripts\Intro.cs" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Shaders\WireframeShader.shader" />
@@ -212,7 +213,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="C:\Users\hansb\Downloads\cc_unity_tools_URP-main\cc_unity_tools_URP-main\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\04. Models\Test\Test_iClone.json" />
     <None Include="Assets\Oculus\SampleFramework\Usage\Firebase\google-services.json" />
     <None Include="C:\Users\hansb\Downloads\cc_unity_tools_URP-main\cc_unity_tools_URP-main\URP\Shaders\Amplify\RL_Amplify_Lit_Opaque_URP.shader" />
     <None Include="Assets\Oculus\SampleFramework\Usage\SceneManager\Shaders\InvisibleOccluder.shader" />
@@ -248,6 +248,7 @@
     <None Include="C:\Users\hansb\Downloads\cc_unity_tools_URP-main\cc_unity_tools_URP-main\URP\Shaders\Amplify\Tessellation\RL_Amplify_HairShader_1st_Pass_Baked_URP_Tessellation.shader" />
     <None Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Shaders\OculusSampleAlphaHandOutline.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\00. Plugins\Android\AndroidManifest.xml" />
     <None Include="C:\Users\hansb\Downloads\cc_unity_tools_URP-main\cc_unity_tools_URP-main\URP\Shaders\Amplify\Tessellation\RL_Amplify_HairShader_2nd_Pass_Variants_URP_Tessellation.shader" />
     <None Include="C:\Users\hansb\Downloads\cc_unity_tools_URP-main\cc_unity_tools_URP-main\URP\Shaders\Amplify\Tessellation\RL_Amplify_TongueShader_URP_Tessellation.shader" />
     <None Include="C:\Users\hansb\Downloads\cc_unity_tools_URP-main\cc_unity_tools_URP-main\URP\Shaders\Amplify\Tessellation\RL_Amplify_CorneaShaderParallax_Baked_URP_Tessellation.shader" />
