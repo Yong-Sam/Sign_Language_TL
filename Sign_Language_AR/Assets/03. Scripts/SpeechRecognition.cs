@@ -15,17 +15,18 @@ public class SpeechRecognition : MonoBehaviour
 
     private SpeechRecognizer recognizer;
     public Button speakButton;
-    public TextMeshProUGUI btnText;
-    public GameObject[] objectsToActivate;
+    public Image targetImage;
+    public Sprite Mic_On;
+    public Sprite Mic_Off;
+    private bool isMicON = true;
     
     public VideoPlayer videoPlayer; // 비디오 플레이어 참조
     public VideoClip[] videoClips; // 단어별 비디오 클립 배열
     public TextMeshProUGUI displayText;
-    
+
     private HashSet<string> currentWords = new HashSet<string>();
     private List<string> currentSentence = new List<string>();
-    
-    
+
     void Start()
     {
         // Android에서 마이크 권한 요청
@@ -74,7 +75,7 @@ public class SpeechRecognition : MonoBehaviour
         await recognizer.StartContinuousRecognitionAsync();
         speakButton.onClick.RemoveAllListeners();
         speakButton.onClick.AddListener(StopRecognition);
-        btnText.text = "Stop Speaking";
+        ChangeImage();
         displayText.text = "";
         
         PlayVideo(1); // listening 비디오 재생 (끄덕임)
@@ -83,12 +84,15 @@ public class SpeechRecognition : MonoBehaviour
     async void StopRecognition()
     {
         Debug.Log("StopRecognition called");
+        
+        PlayVideo(0);// basic 비디오 재생 (멈춤상태)
+        
         await recognizer.StopContinuousRecognitionAsync();
         speakButton.onClick.RemoveAllListeners();
         speakButton.onClick.AddListener(StartRecognition);
-        btnText.text = "Start Speaking";
+        ChangeImage();
         
-        PlayVideo(0); // basic 비디오 재생 (멈춤상태)
+        displayText.text = "";
     }
 
     private void HandleRecognizedText(string text)
@@ -174,6 +178,9 @@ public class SpeechRecognition : MonoBehaviour
 
     private void PlayVideo(int index)
     {
+        string path = System.IO.Path.Combine(Application.streamingAssetsPath, "basic_.mp4");
+        videoPlayer.url = path;
+        
         if (videoPlayer != null && videoClips != null && index >= 0 && index < videoClips.Length)
         {
             videoPlayer.clip = videoClips[index];
@@ -183,6 +190,20 @@ public class SpeechRecognition : MonoBehaviour
         {
             Debug.LogError("Invalid video index or video player not set.");
         }
+    }
+
+    private void ChangeImage()
+    {
+        if (isMicON)
+        {
+            targetImage.sprite = Mic_On;
+        }
+        else
+        {
+            targetImage.sprite = Mic_Off;
+        }
+
+        isMicON = !isMicON; //마이크 온오프 변경
     }
     
     private void OnDestroy()

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: dc4b9a3aadc61064fb30fb55fd3b67f7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - KoddiUD OnGothic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 80db4f38cee58f743a2d7381dc357fd7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

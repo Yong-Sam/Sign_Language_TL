@@ -13,6 +13,7 @@ public class SL_HttpServer : MonoBehaviour
     public TextMeshProUGUI displayText;
     private HashSet<string> currentWords = new HashSet<string>();
     private List<string> currentSentence = new List<string>();
+
     private HttpListener listener;
     private string url = "http://localhost:5000/";
     private int port = 5000;
@@ -60,7 +61,7 @@ public class SL_HttpServer : MonoBehaviour
                 {
                     string jsonData = reader.ReadToEnd();
                     WordData wordData = JsonUtility.FromJson<WordData>(jsonData);
-                    
+
                     // 단어 번호에 따라 Text 컴포넌트에 출력 (메인 스레드에서 실행)
                     UnityMainThreadDispatcher.Instance().Enqueue(() =>
                     {
@@ -107,9 +108,21 @@ public class SL_HttpServer : MonoBehaviour
             case 3:
                 return "반갑습니다.";
             case 4:
-                return "저(의/는)";
+                return "저";
             case 5:
                 return "이름";
+            case 6:
+                return "당신";
+            case 7:
+                return "오늘";
+            case 8:
+                return "날씨";
+            case 9:
+                return "좋아요";
+            case 10:
+                return "감사해요";
+            case 11:
+                return "죄송해요";
             default:
                 return null;
         }
