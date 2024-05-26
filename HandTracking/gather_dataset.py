@@ -34,7 +34,7 @@ import matplotlib.font_manager as fm
 # --------------------------------------------------------------------
 
 
-actions = ['Hello', 'Meet', 'NiceTMY', 'I', 'Name'] # 연속된 동작
+actions = ['Hello'] # 연속된 동작
 seq_length = 30
 secs_for_action = 30 # 액션 녹화하는 시간
 
@@ -52,7 +52,7 @@ hands = mp_hands.Hands(
 
 cap = cv2.VideoCapture(0)
 
-created_time = int(time,time())
+created_time = int(time.time())
 os.makedirs('dataset', exist_ok=True)
 
 # def click(event, x, y, flags, param):
@@ -73,7 +73,7 @@ while cap.isOpened():
 
         cv2.putText(img, f'Waiting for collecting {action.upper()} action...', org=(10,30),
                     fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(255, 255, 255), thickness=2)
-        cv2.imshow('img', img)
+        cv2.imshow('training', img)
         cv2.waitKey(3000)
 
         start_time = time.time()
